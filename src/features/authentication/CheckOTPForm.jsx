@@ -22,7 +22,7 @@ function CheckOTPForm() {
                         borderRadius: "0.5rem"
                     }}
                 />
-                <button className="btn btn--primary w-full">تایید</button>
+                <button className="btn btn--primary w-full"> ارسال کد تایید</button>
             </form>
         </div>
     )
