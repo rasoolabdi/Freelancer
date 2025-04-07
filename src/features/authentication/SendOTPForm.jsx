@@ -1,12 +1,10 @@
-import { useState } from "react";
 import TextField from "../../ui/TextField";
 import { useMutation } from "@tanstack/react-query";
 import { getOTP } from "../../services/authService";
 import toast from "react-hot-toast";
 import Loading from "../../ui/Loading";
 
-function SendOTPForm({ setStep }) {
-    const [phoneNumber , setPhoneNumber] = useState("");
+function SendOTPForm({ setStep , phoneNumber , setPhoneNumber }) {
 
     const {isPending: loading  , mutateAsync} = useMutation({
         mutationFn: getOTP
