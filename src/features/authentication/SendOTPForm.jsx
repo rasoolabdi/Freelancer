@@ -17,7 +17,7 @@ function SendOTPForm({ phoneNumber , setPhoneNumber , loading , onSubmit }) {
                     />
                 </div>
                 {loading ? (<p><Loading /></p>) : (
-                    <button type="submit" className="btn btn--primary w-full">ارسال</button>
+                    <button type="submit" className="btn btn--primary w-full">ارسال کد تایید</button>
                 )}
             </form>
         </div>
