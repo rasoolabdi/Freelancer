@@ -1,10 +1,10 @@
 
 
-function Owner() {
+function OwnerDashboard() {
     return (
         <div>
             owner page
         </div>
     )
 };
-export default Owner;
+export default OwnerDashboard;
