@@ -1,5 +1,6 @@
 import Empty from "../../ui/Empty";
 import Loading from "../../ui/Loading";
+import truncateText from "../../utils/truncateText";
 import useOwnerProjects from "./useOwnerProjects";
 
 
@@ -30,7 +31,7 @@ function ProjectTable() {
                     {projects.map((project , index) => (
                         <tr key={project._id}>
                             <td>{index + 1}</td>
-                            <td>{project.title}</td>
+                            <td>{truncateText(project.title , 30)}</td>
                             <td>{project.category.title}</td>
                             <td>{project.budget}</td>
                             <td>{project.deadline}</td>
