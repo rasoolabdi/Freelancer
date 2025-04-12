@@ -1,5 +1,7 @@
 import Empty from "../../ui/Empty";
 import Loading from "../../ui/Loading";
+import tolocalDateShort from "../../utils/toLocalDateShort";
+import toPersianNumbersWithComma from "../../utils/toPersianNumbers";
 import truncateText from "../../utils/truncateText";
 import useOwnerProjects from "./useOwnerProjects";
 
@@ -33,8 +35,8 @@ function ProjectTable() {
                             <td>{index + 1}</td>
                             <td>{truncateText(project.title , 30)}</td>
                             <td>{project.category.title}</td>
-                            <td>{project.budget}</td>
-                            <td>{project.deadline}</td>
+                            <td>{toPersianNumbersWithComma(project.budget)}</td>
+                            <td>{tolocalDateShort(project.deadline)}</td>
                             <td>
                                 <div className="flex flex-wrap items-center gap-2 max-w-[200px]">
                                     {project.tags.map((tag) => (
