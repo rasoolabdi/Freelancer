@@ -6,9 +6,13 @@ import truncateText from "../../utils/truncateText";
 import { HiOutlineTrash } from "react-icons/hi2";
 import Modal from "../../ui/Modal";
 import { useState } from "react";
+import ConfirmDelete from "../../ui/ConfirmDelete";
+import useRemoveProject from "./useRemoveProject";
 
 function ProjectRow({ project , index }) {
     const [isEditOpen , setIsEditOpen] = useState(false);
+    const [isDeleteOpen , setIsDeleteOpen] = useState(false);
+    const { removeProject , isDeleting } = useRemoveProject();
 
 
     return (
@@ -35,21 +39,37 @@ function ProjectRow({ project , index }) {
             </td>   
             <td>
                 <div className="flex items-center gap-x-4">
-    
-                    <button onClick={() => setIsEditOpen(true)}>
-                        <TbPencilMinus className="w-6 h-6 text-primary-900" />
-                    </button>
-                    <Modal
-                        title="modal title"
-                        open={isEditOpen}
-                        onClose={() => setIsEditOpen(false)}
-                    >
-                        this is modal
-                    </Modal>
-                    
-                    <button>
-                        <HiOutlineTrash className="w-6 h-6 text-rose-600" />
-                    </button>
+                    <>
+                        <button onClick={() => setIsEditOpen(true)}>
+                            <TbPencilMinus className="w-6 h-6 text-primary-900" />
+                        </button>
+                        <Modal
+                            title={`ویرایش ${project.title}`}
+                            open={isEditOpen}
+                            onClose={() => setIsEditOpen(false)}
+                        >
+                            this is modal
+                        </Modal>
+                    </>
+                    <>
+                        <button onClick={() => setIsDeleteOpen(true)}>
+                            <HiOutlineTrash className="w-6 h-6 text-rose-600" />
+                        </button>
+                        <Modal
+                            title={`حذف ${project.title}`}
+                            open={isDeleteOpen}
+                            onClose={() => setIsDeleteOpen(false)}
+                        >
+                            <ConfirmDelete 
+                                resourseName={project.title}
+                                onClose={() => setIsDeleteOpen(false)}
+                                onConfirm={() => {removeProject(project._id , {
+                                    onSuccess: () => setIsDeleteOpen(false)
+                                })}}
+                                disabled={false}
+                            />
+                        </Modal>
+                    </>
                 </div>
             </td>
         </Table.Row>

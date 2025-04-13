@@ -4,7 +4,7 @@ import { getOwnerProjectsApi } from "../../services/projectService";
 
 function useOwnerProjects() {
     return useQuery({
-        queryKey: ["projects"],
+        queryKey: ["owner-projects"],
         queryFn: getOwnerProjectsApi,
         retry: false,
         refetchOnReconnect: true,
