@@ -1,0 +1,20 @@
+import { HiOutlineXCircle } from "react-icons/hi2";
+
+function Modal({children , open , onClose , title}) {
+    return (open && 
+        <div className="backdrop-blur-sm fixed top-0 left-0 w-full h-screen bg-secondary-800 bg-opacity-30 z-50">
+            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-secondary-0
+                        p-4 shadow-lg transition-all duration-500 ease-out w-64
+            ">
+                <div className="flex items-center justify-between border-b border-b-secondary-300 pb-2 mb-6">
+                    <p className="text-secondary-700 font-bold text-base">{title}</p>
+                    <button onClick={onClose}>
+                        <HiOutlineXCircle className="w-6 h-6 text-rose-500" />
+                    </button>
+                </div>
+                {children}
+            </div>
+        </div>
+    )
+};
+export default Modal;

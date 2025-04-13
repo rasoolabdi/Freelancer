@@ -1,9 +1,16 @@
+import { TbPencilMinus } from "react-icons/tb";
 import Table from "../../ui/Table";
 import tolocalDateShort from "../../utils/toLocalDateShort";
 import toPersianNumbersWithComma from "../../utils/toPersianNumbers";
 import truncateText from "../../utils/truncateText";
+import { HiOutlineTrash } from "react-icons/hi2";
+import Modal from "../../ui/Modal";
+import { useState } from "react";
 
 function ProjectRow({ project , index }) {
+    const [isEditOpen , setIsEditOpen] = useState(false);
+
+
     return (
         <Table.Row key={project._id}>
             <td>{index + 1}</td>
@@ -26,7 +33,25 @@ function ProjectRow({ project , index }) {
                     <span className="badge badge--danger">بسته</span>
                 )}
             </td>   
-            <td>...</td>
+            <td>
+                <div className="flex items-center gap-x-4">
+    
+                    <button onClick={() => setIsEditOpen(true)}>
+                        <TbPencilMinus className="w-6 h-6 text-primary-900" />
+                    </button>
+                    <Modal
+                        title="modal title"
+                        open={isEditOpen}
+                        onClose={() => setIsEditOpen(false)}
+                    >
+                        this is modal
+                    </Modal>
+                    
+                    <button>
+                        <HiOutlineTrash className="w-6 h-6 text-rose-600" />
+                    </button>
+                </div>
+            </td>
         </Table.Row>
     )
 };
