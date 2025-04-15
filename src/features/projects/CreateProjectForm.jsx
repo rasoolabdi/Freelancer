@@ -79,7 +79,10 @@ function CreateProjectForm() {
                 options={[]}
             />
             <div>
-                <label htmlFor="tags">تگ های پروژه</label>
+                <label htmlFor="tags">
+                    تگ های پروژه
+                    <span className="text-error">*</span>
+                </label>
                 <TagsInput 
                     name="tags"
                     value={tags}

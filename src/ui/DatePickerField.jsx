@@ -6,7 +6,10 @@ function DatePickerField({ label , date , setDate}) {
 
     return (
         <div>
-            <label className="mb-2 block text-secondary-700" htmlFor="date">{label}</label>
+            <label className="mb-2 block text-secondary-700" htmlFor="date">
+                {label}
+                <span className="text-error">*</span>
+            </label>
             <DatePicker 
                 containerClassName="w-full"
                 inputClass="textField__input"
