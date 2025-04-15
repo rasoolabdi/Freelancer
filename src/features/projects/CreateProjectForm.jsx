@@ -6,7 +6,7 @@ function CreateProjectForm() {
     const {register , formState: {errors} , handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-        console.log("dd" , data)
+        console.log(data)
     }
 
     return (
@@ -16,6 +16,7 @@ function CreateProjectForm() {
                 name="title"
                 register={register}
                 required
+                errors={errors}
                 validationSchema={{
                     required: "لطفا عنوان پروژه را وارد نمایید",
                     minLength: {
@@ -27,13 +28,13 @@ function CreateProjectForm() {
                         message: "طول عنوان پروژه بیشتر از بیست کاراکتر نباشد"
                     }
                 }}
-                errors={errors}
             />
             <TextField 
                 label=" توضیحات پروژه"
                 name="description"
                 register={register}
                 required
+                errors={errors}
                 validationSchema={{
                     required: "لطفا توضیحات پروژه را وارد نمایید",
                     minLength: {
@@ -45,12 +46,12 @@ function CreateProjectForm() {
                         message: "توضیحات پروژه بیشتر از پنجاه کاراکتر نباشد"
                     }
                 }}
-                errors={errors}
             />
             <TextField 
                 label="بودجه پیشنهادی کارفرما"
                 name="budget"
                 register={register}
+                errors={errors}
                 required
                 validationSchema={{
                     required: "لطفا بودجه پیشنهادی خود را وارد نمایید",
@@ -63,7 +64,6 @@ function CreateProjectForm() {
                         message: "رقم بودجه بیشتر از پانزده عدد نباشد"
                     }
                 }}
-                errors={errors}
             />
             <button className="btn btn--primary w-full" type="submit">تایید</button>
         </form>

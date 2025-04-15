@@ -1,7 +1,7 @@
 import TextField from "../../ui/TextField";
 import Loading from "../../ui/Loading";
 
-function SendOTPForm({ phoneNumber , setPhoneNumber , loading , onSubmit }) {
+function SendOTPForm({ loading , onSubmit , register}) {
 
     return (
         <div>
@@ -11,8 +11,9 @@ function SendOTPForm({ phoneNumber , setPhoneNumber , loading , onSubmit }) {
                         name="phoneNumber"
                         type="text"
                         label="شماره موبایل"
-                        value={phoneNumber}
-                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        register={register}
+                        // value={phoneNumber}
+                        // onChange={(e) => setPhoneNumber(e.target.value)}
                         placeholder="example: 09101234567"                    
                     />
                 </div>

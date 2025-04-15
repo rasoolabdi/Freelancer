@@ -8,7 +8,6 @@ import useOwnerProjects from "./useOwnerProjects";
 function ProjectTable() {
     const { isLoading , data } = useOwnerProjects();
     const { projects } = data || {};
-    console.log(projects)
     if(isLoading) return <Loading />;
     if(!projects.length) return <Empty resourceName="پروژه ایی" />;
 
