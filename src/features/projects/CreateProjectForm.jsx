@@ -1,9 +1,15 @@
 import { useForm } from "react-hook-form";
 import TextField from "../../ui/TextField";
+import RHFSelect from "../../pages/RHFSelect";
+import { useState } from "react";
+import { TagsInput } from "react-tag-input-component";
+import DatePickerField from "../../ui/DatePickerField";
 
 
 function CreateProjectForm() {
     const {register , formState: {errors} , handleSubmit } = useForm();
+    const [tags , setTags] = useState([]);
+    const [date , setDate] = useState(new Date());
 
     const onSubmit = (data) => {
         console.log(data)
@@ -65,6 +71,28 @@ function CreateProjectForm() {
                     }
                 }}
             />
+            <RHFSelect 
+                label="دسته بندی"
+                name="category"
+                register={register}
+                required
+                options={[]}
+            />
+            <div>
+                <label htmlFor="tags">تگ های پروژه</label>
+                <TagsInput 
+                    name="tags"
+                    value={tags}
+                    onChange={setTags}  
+                />
+            </div>
+            <div>
+                <DatePickerField  
+                    date={date}
+                    setDate={setDate}
+                    label="ددلاین (زمان تحویل پروژه)"
+                />
+            </div>
             <button className="btn btn--primary w-full" type="submit">تایید</button>
         </form>
     )
