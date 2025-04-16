@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 
 function AuthContainer() {
     const [step , setStep] = useState(2);
-    // const [phoneNumber , setPhoneNumber] = useState("09101234567");
+    const [phoneNumber , setPhoneNumber] = useState("09101234567");
     const {register , handleSubmit , getValues} = useForm();
 
     const {isPending: loading , data:otpResponse , mutateAsync} = useMutation({
