@@ -5,17 +5,31 @@ import { useState } from "react";
 import { TagsInput } from "react-tag-input-component";
 import DatePickerField from "../../ui/DatePickerField";
 import useCategories from "../../hooks/useCategories";
+import useCreateProject from "./useCreateProject";
+import Loading from "../../ui/Loading";
 
 
-function CreateProjectForm() {
-    const {register , formState: {errors} , handleSubmit } = useForm();
+function CreateProjectForm({ onClose }) {
+    const {register , formState: {errors} , handleSubmit , reset} = useForm();
     const [tags , setTags] = useState([]);
     const [date , setDate] = useState(new Date());
     const { newCategories , isLoading } = useCategories();
+    const {isCreating , createProject} = useCreateProject();
 
     const onSubmit = (data) => {
-        console.log(data)
-    }
+        const newProject = {
+            ... data , 
+            tags,
+            deadline: new Date(date).toISOString()
+        };
+        createProject(newProject , {
+            onSuccess: () => {
+                onClose();
+                reset();
+            }
+        })
+    };
+
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
@@ -98,7 +112,11 @@ function CreateProjectForm() {
                     label="ددلاین (زمان تحویل پروژه)"
                 />
             </div>
-            <button className="btn btn--primary w-full" type="submit">تایید</button>
+            <div>
+                {isCreating ? (<p><Loading /></p>) : (
+                    <button className="btn btn--primary w-full" type="submit">تایید</button>
+                )}
+            </div>
         </form>
     )
 };

@@ -5,7 +5,7 @@ function ConfirmDelete({ resourseName , onClose , onConfirm , disabled }) {
     return (
         <div>
             <h2 className="font-bold text-base mb-8">
-                آیا از حذف <span className="font-bold text-2xl">{resourseName}</span> مطمئن هستید ؟
+                آیا از حذف پروژه <span className="font-bold text-2xl">{resourseName}</span> مطمئن هستید ؟
             </h2>
             <div className="flex justify-between items-center gap-x-16">
                 <button 
