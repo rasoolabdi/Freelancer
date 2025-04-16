@@ -7,14 +7,31 @@ import DatePickerField from "../../ui/DatePickerField";
 import useCategories from "../../hooks/useCategories";
 import useCreateProject from "./useCreateProject";
 import Loading from "../../ui/Loading";
+import useEditProject from "./useEditProject";
 
 
-function CreateProjectForm({ onClose }) {
-    const {register , formState: {errors} , handleSubmit , reset} = useForm();
-    const [tags , setTags] = useState([]);
-    const [date , setDate] = useState(new Date());
+function CreateProjectForm({ onClose , projectToEdit = {} }) {
+    const {_id: editId} = projectToEdit;
+    const isEditSession = Boolean(editId);
+    const {title , description , budget , category} = projectToEdit;
+    let editValues = {};
+    if(isEditSession) {
+        editValues = {
+            title,
+            description,
+            budget,
+            category: category._id,
+        }
+    };
+
+
+
+    const {register , formState: {errors} , handleSubmit , reset} = useForm({ defaultValues: editValues });
+    const [tags , setTags] = useState(projectToEdit?.tags || []);
+    const [date , setDate] = useState(new Date(projectToEdit?.deadline || ""));
     const { newCategories , isLoading } = useCategories();
     const {isCreating , createProject} = useCreateProject();
+    const { isUpdating , editProject } = useEditProject();
 
     const onSubmit = (data) => {
         const newProject = {
@@ -22,12 +39,22 @@ function CreateProjectForm({ onClose }) {
             tags,
             deadline: new Date(date).toISOString()
         };
-        createProject(newProject , {
-            onSuccess: () => {
-                onClose();
-                reset();
-            }
-        })
+        if(isEditSession) {
+            editProject({id: editId , newProject} , {
+                onSuccess: () => {
+                    onClose();
+                    reset();
+                }
+            });
+        }
+        else {
+            createProject(newProject , {
+                onSuccess: () => {
+                    onClose();
+                    reset();
+                }
+            })
+        }
     };
 
 
