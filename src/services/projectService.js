@@ -19,3 +19,8 @@ export function editProjectApi({id , newProject}) {
 export function toggleProjectStatusApi({ id , data }) {
     return http.patch(`/project/${id}` , data).then(({ data }) => data.data)
 };
+
+export function getSingleProject(id) {
+    return http.get(`/project/${id}`).then(({ data }) => data.data)
+};
+
