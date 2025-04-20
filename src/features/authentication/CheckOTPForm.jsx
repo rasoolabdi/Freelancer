@@ -51,7 +51,7 @@ function CheckOTPForm({ phoneNumber , onBack , onReSendOTP , otpResponse }) {
     return (
         <div>
             <button onClick={onBack} className="mb-4 flex gap-x-2">
-                <HiArrowRight className="w-6 h-6 text-secondary-700 content-center" />
+                <HiArrowRight className="w-6 h-6 text-secondary-800 content-center" />
                 <span className="bg-slate-200 border rounded-xl w-32 h-8 content-center">صفحه قبل</span>
             </button>
             <div className="mb-16">
