@@ -1,15 +1,15 @@
 import { HiCollection, HiOutlineViewGrid } from "react-icons/hi";
-import Stat from "./Stat";
 import { HiCurrencyDollar } from "react-icons/hi2";
+import Stat from "../../ui/Stat";
 
 function Stats({ projects }) {
     const numOfProjects = projects.length;
-    const numOfAcceptedProjects = projects.map((project) => project.status === 2).length;
+    const numOfAcceptedProjects = projects.filter((project) => project.status === 2).length;
     const numofProposals = projects.reduce((acc , curr) => curr.proposals.length + acc , 0 );
 
     return (
         <div className="grid lg:grid-cols-3 space-y-4 sm:grid-cols-1 gap-x-8 mt-4">
-            <Stat 
+            <Stat
                 color="primary"
                 title="همه پروژه ها"
                 value={numOfProjects}
