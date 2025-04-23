@@ -42,7 +42,7 @@ function ProposalRow({ proposal , index }) {
             </td>
             <td>
                 <button onClick={() => setOpen(true)} className="btn btn--primary">
-                    نغییر وضعیت
+                    تغییر وضعیت
                 </button>
                 <Modal
                     title="تغییر وضعیت درخواست فریلنسر"
