@@ -6,6 +6,7 @@ function Stats({ projects }) {
     const numOfProjects = projects.length;
     const numOfAcceptedProjects = projects.filter((project) => project.status === 2).length;
     const numofProposals = projects.reduce((acc , curr) => curr.proposals.length + acc , 0 );
+    console.log(projects);
 
     return (
         <div className="grid lg:grid-cols-3 space-y-4 sm:grid-cols-1 gap-x-8 mt-4">
