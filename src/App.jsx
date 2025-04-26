@@ -49,6 +49,6 @@ function App() {
         {/* </ReactQueryDevtools> */}
       </QueryClientProvider>
     </DarkModeProvider>
-  )s
+  )
 }
 export default App;

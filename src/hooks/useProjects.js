@@ -5,7 +5,8 @@ import queryString from "query-string";
 
 function useProjects() {
     const { search } = useLocation();
-    const queryObject = queryString.parse(search);
+    const queryObject = queryString.parse(search); // way one conver url to object
+    // const queryObject = Object.fromEntries(new URLSearchParams(search)); //way two conver url to object
     
     const {isLoading , data} = useQuery({
         queryKey: ["projects" , queryObject],
