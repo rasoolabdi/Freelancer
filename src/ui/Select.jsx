@@ -5,7 +5,7 @@ function Select({ value , onChange , options}) {
         <select 
             value={value} 
             onChange={onChange}
-            className="textField__input py-2 text-xs"
+            className="textField__input py-2 text-xs bg-secondary-0"
         >
             {options.map((item) => (
                 <option key={item.value} value={item.value}>
