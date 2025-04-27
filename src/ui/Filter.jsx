@@ -12,7 +12,7 @@ function Filter({ filterField , options }) {
     return (
         <div className="flex items-center gap-x-2 text-xs">
             <span>وضعیت</span>
-            <div className="flex items-center gap-x-2 border border-secondary-100 bg-secondary-0 rounded-lg">
+            <div className="flex items-center gap-x-2 border p-1 border-secondary-100 bg-secondary-0 rounded-lg">
                 {
                     options.map((item) => {
                         const isActive = item.value === filterValue;
@@ -21,7 +21,7 @@ function Filter({ filterField , options }) {
                             onClick={() => handleChange(item.value)}
                             value={filterValue}
                             key={item.value} 
-                            className={`whitespace-nowrap rounded-lg px-4 py-2 font-boldtransition-all duration-300 
+                            className={`whitespace-nowrap rounded-lg px-4 py-1 font-boldtransition-all duration-300 
                                 hover:bg-primary-100 ${isActive ? "!bg-primary-900 text-white" 
                                 : "bg-secondary-0 text-secondary-800"}
                             `}
