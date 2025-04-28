@@ -17,7 +17,6 @@ import SubmittedProjects from './pages/SubmittedProjects';
 import FreelancerLayout from './features/freelancer/FreelancerLayout';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import ProtectedRoute from './ui/ProtectedRoute';
-import NotAccess from './ui/NotAccess';
 
 
 function App() {
@@ -54,7 +53,6 @@ function App() {
               </Route>
               <Route path="/" element={<Home />} />
               <Route path='*' element={<NotFound />} />
-              <Route path='/not-access' element={<NotAccess />} />
             </Routes>
           
         {/* </ReactQueryDevtools> */}

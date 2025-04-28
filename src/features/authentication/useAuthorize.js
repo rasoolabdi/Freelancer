@@ -7,9 +7,10 @@ function useAuthorize() {
     const { pathname } = useLocation();
 
     let isAuthenticated = false;
+    if(user) isAuthenticated = true;
+    
     let isAuthorized = false;
 
-    if(user) isAuthenticated = true;
 
     // if(pathname.includes("owner")) {
     //     if(user && user.role === "OWNER") isAuthorized = true;

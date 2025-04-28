@@ -33,17 +33,17 @@ function AuthContainer() {
         switch(step) {
             case 1: 
                 return <SendOTPForm 
-                            // phoneNumber={phoneNumber} 
-                            // setPhoneNumber={setPhoneNumber} 
-                            // onSubmit={sendOTPHandler}
-                            onSubmit={handleSubmit(sendOTPHandler)}
+                            phoneNumber={phoneNumber} 
+                            setPhoneNumber={setPhoneNumber} 
+                            onSubmit={sendOTPHandler}
+                            // onSubmit={handleSubmit(sendOTPHandler)}
                             loading={loading}
                             register={register}
                         />
             case 2: 
                 return <CheckOTPForm 
-                            // phoneNumber={phoneNumber} 
-                            phoneNumber={getValues("phoneNumber")}
+                            phoneNumber={phoneNumber} 
+                            // phoneNumber={getValues("phoneNumber")}
                             onBack={() => setStep(1)} 
                             onReSendOTP={handleSubmit(sendOTPHandler)}
                             otpResponse={otpResponse}

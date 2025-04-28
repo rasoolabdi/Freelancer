@@ -9,7 +9,7 @@ function ProtectedRoute({ children }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(!isAuthenticated && !isAuthorized) navigate("/auth" , {replace: true});
+        if(!isAuthenticated && !isAuthorized) navigate("/auth");
         if(!isAuthorized && !isLoading) navigate("/not-access" , {replace: true});
     } , [isAuthenticated , isAuthorized , isLoading , navigate]);
 
@@ -21,6 +21,6 @@ function ProtectedRoute({ children }) {
         )
     }
 
-    if(isAuthenticated && isAuthorized) return children;
+    if(isAuthenticated && isAuthorized) return (children);
 };
 export default ProtectedRoute;
