@@ -9,7 +9,7 @@ function Stats({ proposals }) {
     const balance = acceptedProposals.reduce((acc , curr) => curr.price + acc , 0);
     
     return (
-        <div className="grid lg:grid-cols-3 space-y-4 sm:grid-cols-1 gap-x-8 mt-4">
+        <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-x-8 mt-4">
             <Stat
                 color="primary"
                 title="درخواست ها"
