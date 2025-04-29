@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TextField from "../../ui/TextField";
 import Loading from "../../ui/Loading";
 import RadioInput from "../../ui/RadioInput";
@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import RadioInputGroup from "../../ui/RadioInputGroup";
+import useUser from "./useUser";
 
 function CompleteProfileForm() {
     const { register , handleSubmit , watch , formState: {errors} } = useForm();
