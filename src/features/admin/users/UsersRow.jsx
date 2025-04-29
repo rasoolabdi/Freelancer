@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Table from "../../../ui/Table";
 import Modal from "../../../ui/Modal";
+import ChangeUserStatus from "./ChangeUserStatus";
 
 const statusStyle = [
     {
@@ -39,9 +40,9 @@ function UsersRow({ user , index }) {
                     open={open}
                     onClose={() => setOpen(false)}
                 >
-
+                    <ChangeUserStatus userId={user._id} onClose={() => setOpen(false)} />
                 </Modal>
-                <button onClick={() => setOpen(true)}>تغییر وضعیت</button>
+                <button onClick={() => setOpen(true)} className="btn btn--primary">تغییر وضعیت</button>
             </td>
         </Table.Row>
     )

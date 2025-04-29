@@ -54,7 +54,11 @@ function App() {
                   <Route path='proposals' element={<Proposals />} />
                   <Route path='projects' element={<SubmittedProjects />} />
               </Route>
-              <Route path='/admin' element={<AdminLayout />}>
+              <Route path='/admin' element={
+                <ProtectedRoute>
+                  <AdminLayout />
+                </ProtectedRoute>
+              }>
                 <Route index element={<Navigate to="dashboard" replace />} />
                 <Route path='dashboard' element={<AdminDashboard />} />
                 <Route path='users' element={<Users />} />

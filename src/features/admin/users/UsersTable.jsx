@@ -7,7 +7,6 @@ import UsersRow from "./UsersRow";
 
 function UsersTable() {
     const { isLoading , users } = useUsers();
-    console.log("users" , users)
     if(isLoading) return <Loading />;
     if(!users) return <Empty resourceName="هیچ کاربری" />
 
