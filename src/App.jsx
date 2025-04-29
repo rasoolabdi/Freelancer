@@ -19,6 +19,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import ProtectedRoute from './ui/ProtectedRoute';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLayout from './features/admin/AdminLayout';
+import Users from './pages/Users';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
               <Route path='/admin' element={<AdminLayout />}>
                 <Route index element={<Navigate to="dashboard" replace />} />
                 <Route path='dashboard' element={<AdminDashboard />} />
+                <Route path='users' element={<Users />} />
 
               </Route>
               <Route path="/" element={<Home />} />
