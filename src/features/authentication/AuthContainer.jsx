@@ -5,20 +5,12 @@ import { getOTP } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import useUser from "./useUser";
-import { useNavigate } from "react-router-dom";
+
 
 function AuthContainer() {
     const [step , setStep] = useState(2);
     const [phoneNumber , setPhoneNumber] = useState("09101234567");
     const {register , handleSubmit , getValues} = useForm();
-    const { user } = useUser();
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if(user) navigate("/" , {replace: true})
-    } , [user , navigate]);
-
 
     const {isPending: loading , data:otpResponse , mutateAsync} = useMutation({
         mutationFn: getOTP
