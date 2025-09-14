@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 function AuthContainer() {
     const [step , setStep] = useState(2);
     const [phoneNumber , setPhoneNumber] = useState("09101234567");
-    const {register , handleSubmit , getValues} = useForm();
+    // const {register , handleSubmit , getValues} = useForm();
 
     const {isPending: loading , data:otpResponse , mutateAsync} = useMutation({
         mutationFn: getOTP
@@ -39,16 +39,16 @@ function AuthContainer() {
                             onSubmit={sendOTPHandler}
                             // onSubmit={handleSubmit(sendOTPHandler)}
                             loading={loading}
-                            register={register}
+                            // register={register}
                         />
             case 2: 
                 return <CheckOTPForm 
                             phoneNumber={phoneNumber} 
                             // phoneNumber={getValues("phoneNumber")}
                             onBack={() => setStep(1)} 
-                            onReSendOTP={handleSubmit(sendOTPHandler)}
+                            // onReSendOTP={handleSubmit(sendOTPHandler)}
                             otpResponse={otpResponse}
-                            register={register}
+                            // register={register}
                         />
             default: 
                 return null;

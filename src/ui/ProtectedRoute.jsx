@@ -10,7 +10,7 @@ function ProtectedRoute({ children }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(!isAuthenticated && !isAuthorized) navigate("/auth");
+        if(!isAuthenticated && !isLoading) navigate("/auth");
         if(!isVerified && !isLoading) {
             toast.error("پروفایل شما هنوز تایید نشده است");
             navigate("/");
